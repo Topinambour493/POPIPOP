@@ -2,5 +2,9 @@
     "name": "POPIPOP",
     "description": "pleins de petites balles sur ton écran :)",
     "version": "1.0",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true 
+    },
     "manifest_version": 2
 }

@@ -1,0 +1,23 @@
+.clickAnim{
+    border-radius: 50%;
+    position:absolute;
+    z-index:9000;
+    transform: scale(0);
+    transform-origin: center;
+    animation-name: clickAnim;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes clickAnim {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+        opacity:1;
+    }
+    100% {
+        transform: scale(0);
+        opacity:0;
+    }
+}

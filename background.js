@@ -1,15 +1,19 @@
-function click_ball(p) {
-    for (i=0;i<=p;i++){
+function click_ball() {
+    nb_balls=document.querySelector("#nb_balls").value;
+    console.log(nb_balls);
+    for (i=0;i<nb_balls;i++){
         const rond=document.createElement("div");
         rond.className="clickAnim";
-        rond.style.width=`${10+r(100)}px`;
-        rond.style.height=rond.style.width;
-        rond.style.top= `${window.scrollY + r(window.innerHeight)}px`;
-        rond.style.left= `${window.scrollX + r(window.innerWidth)}px`;
+        var width=10+r(100);
+        var animationDuration=200 + r(1500);
+        rond.style.width=`${width}px`;
+        rond.style.height=`${width}px`;
+        rond.style.top= `${window.scrollY + r(window.innerHeight) - 0.5*width}px`;
+        rond.style.left= `${window.scrollX + r(window.innerWidth) - 0.5*width}px`;
         rond.style.background= `linear-gradient(${r(180)}deg,${get_random_hex_color()},${get_random_hex_color()})`;
-        rond.style.animationDuration= `${200 + r(1500)}ms`;
+        rond.style.animationDuration= `${animationDuration}ms`;
         document.body.appendChild(rond);
-        setTimeout(() => {rond.remove()},1750);
+        setTimeout(() => {rond.remove()},animationDuration);
     }
 }
 
@@ -27,6 +31,28 @@ function r(i){
     return Math.floor(Math.random() *i)
 }
 
+function getNb_balls(){
+    chrome.storage.sync.get(["nb_balls"], function(result) {
+        if (result["nb_balls"]==null){
+            document.querySelector("#nb_balls").value=1;
+            click_ball();
+        }
+        else {
+            document.querySelector("#nb_balls").value=result["nb_balls"];
+            click_ball();
+        }
+    });
+}
+
+function create_nb_balls(){
+    nb_balls=document.createElement("div");
+    nb_balls.id="nb_balls";
+    nb_balls.hidden = true;
+    document.body.appendChild(nb_balls);
+}
+
+create_nb_balls();
+
 window.addEventListener("click", () => {
-click_ball(5);
+    getNb_balls();
 });

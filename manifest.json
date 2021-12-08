@@ -8,5 +8,8 @@
           "css":["style_background.css"]
     }],
     "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html"
+    },
     "permissions": ["storage", "declarativeContent", "activeTab", "scripting", "tabs"]
 }

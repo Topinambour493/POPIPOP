@@ -4,12 +4,12 @@
     "version": "1.0",
     "content_scripts": [{
           "matches": ["<all_urls>"],
-          "js": ["background.js"],
-          "css":["style_background.css"]
+          "js": ["background/background.js"],
+          "css":["background/style_background.css"]
     }],
     "manifest_version": 3,
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "pop_up/popup.html"
     },
     "permissions": ["storage", "declarativeContent", "activeTab", "scripting", "tabs"]
 }

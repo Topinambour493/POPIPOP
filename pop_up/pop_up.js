@@ -1,5 +1,4 @@
 function setNb_balls(){
-    console.log("youpi");
     var nb_balls=parseInt(document.querySelector("#nb_balls").value);
     chrome.storage.sync.set({nb_balls:nb_balls}, function() {
         console.log("la valeur a été changé");
@@ -22,6 +21,4 @@ function getNb_balls(){
 
 getNb_balls();
 
-document.querySelector("button").addEventListener("click", () => {
-    setNb_balls()
-});
+document.querySelector("#nb_balls").addEventListener("change",setNb_balls);

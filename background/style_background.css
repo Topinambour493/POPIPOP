@@ -8,9 +8,9 @@
     animation-timing-function: ease-in-out;
 }
 
-/* body{
-    overflow: hidden;
-} */
+body{
+    overflow-x: hidden;
+}
 
 @keyframes clickAnim {
     0% {

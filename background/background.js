@@ -1,6 +1,5 @@
 function click_ball() {
     nb_balls=document.querySelector("#nb_balls").value;
-    console.log(nb_balls);
     for (i=0;i<nb_balls;i++){
         const rond=document.createElement("div");
         rond.className="clickAnim";
@@ -13,7 +12,9 @@ function click_ball() {
         rond.style.background= `linear-gradient(${r(180)}deg,${get_random_hex_color()},${get_random_hex_color()})`;
         rond.style.animationDuration= `${animationDuration}ms`;
         document.body.appendChild(rond);
-        setTimeout(() => {rond.remove()},animationDuration);
+        setTimeout(() => {
+            rond.remove()
+        },animationDuration);
     }
 }
 
